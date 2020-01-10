@@ -28,7 +28,7 @@ class SettingsPageState extends State<SettingsPage> {
     return ListView.builder(
       itemCount: quizState.questions.length,
       itemBuilder: (BuildContext context, int index) {
-        return new QuestionCard(quizState.questions[index], index);
+        return new QuestionCard(quizState.questions[index], index, ()=>setState((){}));
       }
     );
   }
