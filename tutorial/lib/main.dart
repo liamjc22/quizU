@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tutorial/views/questionPage.dart';
 import 'package:tutorial/views/scorePage.dart';
 import 'package:tutorial/views/settingsPage.dart';
 import 'package:tutorial/views/startPage.dart';
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: title,
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: new SettingsPage()
+      home: new QuestionPage([])
     );
   }
 }
