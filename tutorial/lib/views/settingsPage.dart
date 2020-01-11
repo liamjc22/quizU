@@ -4,8 +4,6 @@ import 'package:tutorial/quizState.dart';
 import 'package:tutorial/views/questionCard.dart';
 
 class SettingsPage extends StatefulWidget {
-  
-  TextStyle titleStyle = TextStyle(color: Colors.white, letterSpacing: 5.0, decoration: TextDecoration.none, fontSize: 50);
 
   @override
   State<StatefulWidget> createState() {
@@ -14,44 +12,44 @@ class SettingsPage extends StatefulWidget {
 }
 
 class SettingsPageState extends State<SettingsPage> {
+  //quiz state
   QuizState quizState = QuizState();
 
-  void _backButtonPressed(BuildContext context){}
-  void _newQuestion(){
+  //functions
+  void _backButtonPressed() {
+    Navigator.pop(context);
+  }
+
+  void _newQuestion() {
     setState(() {
       quizState.questions.add(new Question());
     });
   }
 
-  Widget _getQuestions(){
-
+  Widget _getQuestions() {
     return ListView.builder(
-      itemCount: quizState.questions.length,
-      itemBuilder: (BuildContext context, int index) {
-        return new QuestionCard(quizState.questions[index], index, ()=>setState((){}));
-      }
-    );
+        itemCount: quizState.questions.length,
+        itemBuilder: (BuildContext context, int index) {
+          return new QuestionCard(
+              quizState.questions[index], index, () => setState(() {}));
+        });
   }
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         title: Text("Edit Quiz"),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
-          onPressed: ()=>_backButtonPressed(context),
+          onPressed: () => _backButtonPressed(),
         ),
       ),
-
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
         onPressed: _newQuestion,
       ),
-      
       body: _getQuestions(),
     );
   }
-
 }

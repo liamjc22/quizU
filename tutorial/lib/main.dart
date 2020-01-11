@@ -8,14 +8,14 @@ void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   final String title = "Quizz U";
-  final String name = "Isaiah";
+  final String name = "Carl Johnson";
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: title,
       theme: ThemeData(primarySwatch: Colors.blue),
-      home: new QuestionPage([])
+      home: new StartPage(title, name)
     );
   }
 }

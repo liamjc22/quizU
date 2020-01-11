@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:tutorial/models/question.dart';
+import 'package:tutorial/quizState.dart';
 import 'package:tutorial/views/scorePage.dart';
 
 class QuestionPage extends StatefulWidget {
-  final List<Question> list;
-  QuestionPage(this.list);
+  final List<Question> list = QuizState().questions;
   @override
   _QuestionPageState createState() => _QuestionPageState(list);
 }
@@ -28,7 +28,10 @@ class _QuestionPageState extends State<QuestionPage> {
   }
 
   void checkIndex() {
-    //advances to next question or to score page
+    //hide or show overlay
+    this.setState(() {
+      showOverlay = false;
+    });
     if (index < questions.length - 1)
       this.setState(() {
         index++;
@@ -39,13 +42,6 @@ class _QuestionPageState extends State<QuestionPage> {
           MaterialPageRoute(
               builder: (context) => ScorePage(score / questions.length)));
     }
-  }
-
-  void toggleOverlay() {
-    //hide or show overlay
-    this.setState(() {
-      showOverlay = false;
-    });
   }
 
   @override
@@ -74,13 +70,13 @@ class _QuestionPageState extends State<QuestionPage> {
                     Padding(
                       padding: EdgeInsets.only(bottom: 50),
                       child: Text(
-                        "questions[index].question",
+                        questions[index].question,
                         style: TextStyle(fontSize: 20),
                       ),
                     ),
                     //answers
                     FlatButton(
-                      child: Text("questions[index].answers[0]"),
+                      child: Text(questions[index].answers[0]),
                       onPressed: () {
                         this.setState(() {
                           chosen = 0;
@@ -88,7 +84,7 @@ class _QuestionPageState extends State<QuestionPage> {
                       },
                     ),
                     FlatButton(
-                      child: Text("questions[index].answers[1]"),
+                      child: Text(questions[index].answers[1]),
                       onPressed: () {
                         this.setState(() {
                           chosen = 1;
@@ -96,7 +92,7 @@ class _QuestionPageState extends State<QuestionPage> {
                       },
                     ),
                     FlatButton(
-                      child: Text("questions[index].answers[2]"),
+                      child: Text(questions[index].answers[2]),
                       onPressed: () {
                         this.setState(() {
                           chosen = 2;
@@ -104,7 +100,7 @@ class _QuestionPageState extends State<QuestionPage> {
                       },
                     ),
                     FlatButton(
-                      child: Text("questions[index].answers[3]"),
+                      child: Text(questions[index].answers[3]),
                       onPressed: () {
                         this.setState(() {
                           chosen = 3;
@@ -116,19 +112,19 @@ class _QuestionPageState extends State<QuestionPage> {
                       child: RaisedButton(
                         child: Text("Submit"),
                         onPressed: () {
-                          if (chosen == questions[index].answer) {  //correct answer
+                          if (chosen == questions[index].answer) {
+                            //correct answer
                             this.setState(() {
                               score = score + 1;
                               correct = true;
                               showOverlay = true;
                             });
-                            checkIndex();
-                          } else {  //incorrect answer
+                          } else {
+                            //incorrect answer
                             this.setState(() {
                               correct = false;
                               showOverlay = true;
                             });
-                            checkIndex();
                           }
                         },
                       ),
@@ -139,7 +135,7 @@ class _QuestionPageState extends State<QuestionPage> {
           showOverlay == true
               ? new Overlay(
                   correct: this.correct,
-                  onPressed: toggleOverlay,
+                  onPressed: checkIndex,
                 )
               : Container(),
         ],
@@ -164,7 +160,8 @@ class Overlay extends StatelessWidget {
     return Material(
       color: Colors.black54,
       child: InkWell(
-          onTap: () { //hides overlay
+          onTap: () {
+            //hides overlay
             this.onPressed();
           },
           child: Column(
