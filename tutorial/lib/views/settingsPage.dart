@@ -41,7 +41,7 @@ class SettingsPageState extends State<SettingsPage> {
       appBar: AppBar(
         title: Text("Edit Quiz"),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: Icon(Icons.arrow_back_ios),
           onPressed: () => _backButtonPressed(),
         ),
       ),

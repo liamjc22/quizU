@@ -36,7 +36,6 @@ class StartPage extends StatelessWidget {
 
   Widget _getBody(BuildContext context) {
     return Container(
-        // color: Colors.lightBlue,
         child: Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
