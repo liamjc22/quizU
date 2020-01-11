@@ -39,6 +39,9 @@ class QuestionCardState extends State<QuestionCard> {
 
   QuestionCardState(this.answer, String question) {
     questionController.text = question; 
+    questionController.addListener(() {
+        this.widget.question.question = questionController.text;
+    });
   }
 
   List<Widget> _getChoices() {

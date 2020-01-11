@@ -4,7 +4,7 @@ class Question {
   Question(){
     question = "";
     answers = ["","","",""];
-    answer=1;
+    answer=0;
   }
   String question;
   List<String> answers;
