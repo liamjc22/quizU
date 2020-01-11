@@ -9,12 +9,12 @@ class StartPage extends StatelessWidget {
   final String name;
 
   //styles
-  TextStyle titleStyle = TextStyle(
+  final TextStyle titleStyle = TextStyle(
       color: Colors.white,
       letterSpacing: 6.0,
       decoration: TextDecoration.none,
       fontSize: 60);
-  TextStyle textStyle = TextStyle(
+  final TextStyle textStyle = TextStyle(
       color: Colors.white,
       letterSpacing: 4.0,
       decoration: TextDecoration.none,
