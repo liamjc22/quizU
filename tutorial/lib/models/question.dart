@@ -7,6 +7,6 @@ class Question {
     answer=0;
   }
   String question;
-  List<String> answers;
+  List<dynamic> answers;
   int answer;
 }

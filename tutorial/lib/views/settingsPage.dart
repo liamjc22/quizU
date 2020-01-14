@@ -17,12 +17,15 @@ class SettingsPageState extends State<SettingsPage> {
 
   //functions
   void _backButtonPressed() {
+    quizState.saveState();
     Navigator.pop(context);
   }
 
   void _newQuestion() {
     setState(() {
       quizState.questions.add(new Question());
+      quizState.saveState();
+
     });
   }
 
@@ -31,7 +34,7 @@ class SettingsPageState extends State<SettingsPage> {
         itemCount: quizState.questions.length,
         itemBuilder: (BuildContext context, int index) {
           return new QuestionCard(
-              quizState.questions[index], index, () => setState(() {}));
+              quizState.questions[index], index, () => setState(() {quizState.saveState();}));
         });
   }
 
