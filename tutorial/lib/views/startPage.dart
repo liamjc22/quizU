@@ -77,6 +77,7 @@ class StartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: new AppBar(
+          
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.settings),

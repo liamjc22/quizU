@@ -1,6 +1,13 @@
 # tutorial
 
-A new Flutter project.
+A Flutter project created initially for a hackathon workshop introducing programmers to mobile development. 
+
+QuizU is a simple quiz application where users can input questions and answers to quiz their friends!
+
+![](tutorial/lib/images/home.jpg)
+
+
+For reference here is the recommended starting point for beginners from Flutter: 
 
 ## Getting Started
 
