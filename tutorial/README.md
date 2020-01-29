@@ -4,11 +4,11 @@ A Flutter project created initially for a hackathon workshop introducing program
 
 QuizU is a simple quiz application where users can input questions and answers to quiz their friends!
 
-![](lib/images/home.jpg)
-![](lib/images/settings.jpg)
-![](lib/images/question.jpg)
-![](lib/images/answer.jpg)
-![](lib/images/score.jpg)
+![](lib/images/home.png)
+![](lib/images/settings.png)
+![](lib/images/question.png)
+![](lib/images/answer.png)
+![](lib/images/score.png)
 
 
 For reference here is the recommended starting point for beginners from Flutter: 
